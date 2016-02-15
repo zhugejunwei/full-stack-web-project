@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     distFolder: 'target/classes',
     validation: {
       options: {
-        reset: grunt.option('reset') || false,
+        reset: grunt.option('reset') || true,
         stoponerror: false,
         failHard: true,
         generateReport: true,
