@@ -29,13 +29,13 @@ Polyfill
         }, timeToCall );
       lastTime = currTime + timeToCall;
       return id;
-    }
+    };
   }
 
   if( !window.cancelAnimationFrame ) {
     window.cancelAnimationFrame = function( id ) {
       clearTimeout( id );
-    }
+    };
   }
 
 })();
@@ -50,13 +50,13 @@ DOM Manipulation
 
   function hasClass( elem, className ) {
     return new RegExp( ' ' + className + ' ' ).test( ' ' + elem.className + ' ' );
-  };
+  }
 
   function addClass( elem, className ) {
     if( !hasClass(elem, className ) ) {
       elem.className += ' ' + className;
     }
-  };
+  }
 
   function removeClass( elem, className ) {
     var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ' ) + ' ';
@@ -66,7 +66,7 @@ DOM Manipulation
       }
       elem.className = newClass.replace( /^\s+|\s+$/g, '' );
     }
-  };
+  }
 
   function toggleClass( elem, className ) {
     var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ' ) + ' ';
@@ -78,7 +78,7 @@ DOM Manipulation
     } else {
       elem.className += ' ' + className;
     }
-  };
+  }
 
 })();
 
@@ -234,7 +234,7 @@ Time
 
   g.Time = function() {
     this.reset();
-  }
+  };
 
   g.Time.prototype.reset = function() {
     this.now = Date.now();
@@ -317,7 +317,7 @@ Board Tile Entity
       down: 0,
       left: 0,
       right: 0
-    }
+    };
     this.updateDimensions();
   };
 
@@ -414,7 +414,7 @@ Snake Tile Entity
   g.SnakeTile.prototype.update = function( i ) {
     this.x = this.col * this.parentState.tileWidth;
     this.y = this.row * this.parentState.tileHeight;
-    if( i == 0 ) {
+    if( i === 0 ) {
       this.color = '#fff';
       this.blur = this.parentState.dimAvg * 0.03 + Math.sin( this.parentState.time.elapsed / 200 ) * this.parentState.dimAvg * 0.015;
       if( this.parentState.snake.dir == 'n' ) {
@@ -550,7 +550,7 @@ Snake Entity
     this.justAteTickChange = 0.05;
 
     // sync data grid of the play state
-    var i = this.tiles.length;
+    i = this.tiles.length;
 
     while( i-- ) {
       this.parentState.grid.set( this.tiles[ i ].col, this.tiles[ i ].row, 'snake' );
@@ -938,7 +938,7 @@ Game
 ================================================*/
 
 (function(){ 'use strict';
-
+console.error();
   g.config = {
     title: 'Snakely',
     debug: window.location.hash == '#debug' ? 1 : 0,
