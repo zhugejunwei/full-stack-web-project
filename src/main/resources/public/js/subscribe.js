@@ -95,7 +95,7 @@ $(document).ready(function(){
 	                    topLevelDomains: topLevelDomains,
 	                    suggested: function(element, suggestion) {
 	                        var msg = 'Hmm, did you mean '+suggestion.full+'? If not, carry on.';
-	                        if ( $('#MERGE0_mailcheck').length == 0 ){
+	                        if ( $('#MERGE0_mailcheck').length === 0 ){
 	                            element.after('<div id="MERGE0_mailcheck" class="feedback">'+msg+'</div>');
 	                            element.closest('.field-group').addClass('mailcheck');
 	                        }
