@@ -18,6 +18,10 @@ import static spark.Spark.get;
 
 import com.heroku.sdk.jdbc.DatabaseUrl;
 
+import static spark.Spark.*;
+
+import routes.*;
+
 public class Main {
 
   public static void main(String[] args) {
@@ -41,6 +45,8 @@ public class Main {
     //         return new ModelAndView(attributes, "index.ftl");
     //     }, new FreeMarkerEngine());
 
+    Object r = new Week8Routes(); 
+      
     get("/db", (req, res) -> {
       Connection connection = null;
       Map<String, Object> attributes = new HashMap<>();
