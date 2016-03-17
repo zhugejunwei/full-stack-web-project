@@ -45,7 +45,7 @@ public class Main {
     //         return new ModelAndView(attributes, "index.ftl");
     //     }, new FreeMarkerEngine());
 
-    Object r = new Week8Routes(); 
+    Object r = new Week7Routes();
       
     get("/db", (req, res) -> {
       Connection connection = null;
