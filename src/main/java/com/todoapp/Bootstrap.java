@@ -16,8 +16,8 @@ import static spark.SparkBase.staticFileLocation;
  * @author zhugejunwei
  */
 public class Bootstrap {
-    private static final String IP_ADDRESS = System.getenv("candidate.67.mongolayer.com") != null ? System.getenv("candidate.67.mongolayer.com") : "localhost";
-    private static final int PORT = System.getenv("10396") != null ? Integer.parseInt(System.getenv("10396")) : 8080;
+    private static final String IP_ADDRESS = "candidate.67.mongolayer.com" != null ? "candidate.67.mongolayer.com" : "localhost";
+    private static final int PORT = "10396" != null ? Integer.parseInt("10396") : 8080;
  
     public static void main(String[] args) throws Exception {
         //setIpAddress(IP_ADDRESS); # Deprecated
@@ -29,15 +29,15 @@ public class Bootstrap {
     }
  
     private static DB mongo() throws Exception {
-        String host = System.getenv("candidate.67.mongolayer.com");
+        String host = "candidate.67.mongolayer.com";
         if (host == null) {
             MongoClient mongoClient = new MongoClient("localhost");
             return mongoClient.getDB("todoapp");
         }
-        int port = Integer.parseInt(System.getenv("10396"));
-        String dbname = System.getenv("app45876994");
-        String username = System.getenv("heroku");
-        String password = System.getenv("pn8dcfWw1gaUwhB0Ic62Vr-HCd38d5aCCckox1Hs_4EFlQbre-7225F_2nywCjrjlrCU78bdszTPwjCdEZZeig");
+        int port = Integer.parseInt("10396");
+        String dbname = "app45876994";
+        String username = "heroku";
+        String password = "pn8dcfWw1gaUwhB0Ic62Vr-HCd38d5aCCckox1Hs_4EFlQbre-7225F_2nywCjrjlrCU78bdszTPwjCdEZZeig";
         MongoClientOptions mongoClientOptions = MongoClientOptions.builder().build();
         MongoClient mongoClient = new MongoClient(new ServerAddress(host, port), mongoClientOptions);
         mongoClient.setWriteConcern(WriteConcern.SAFE);
