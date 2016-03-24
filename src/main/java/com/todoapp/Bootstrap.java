@@ -18,14 +18,18 @@ import static spark.SparkBase.staticFileLocation;
  * @author zhugejunwei
  */
 public class Bootstrap {
-    private static final String IP_ADDRESS = System.getenv("OPENSHIFT_DIY_IP") != null ? System.getenv("OPENSHIFT_DIY_IP") : "localhost";
+    //private static final String IP_ADDRESS = System.getenv("OPENSHIFT_DIY_IP") != null ? System.getenv("OPENSHIFT_DIY_IP") : "localhost";
     private static final int PORT = System.getenv("ServerAddress.getPort()") != null ? Integer.parseInt(System.getenv("ServerAddress.getPort()")) : 8080;
- 
+    private static final String IP_ADDRESS = System.getenv("ServerAddress.getHost()");
+    
     public static void main(String[] args) throws Exception {
         ipAddress(IP_ADDRESS);
         port(PORT);
         staticFileLocation("/public");
         new TodoResource(new TodoService(mongo()));
+        //MongoURI mongoURI = new MongoURI(System.getenv("MONGOHQ_URL"));
+        //DB db = mongoURI.connectDB();
+        //MongoCredential credential = MongoCredential.createCredential(mongoURI.getUsername(), mongoURI.getDatabase(), mongoURI.getPassword());	
     }
  
     private static DB mongo() throws Exception {
