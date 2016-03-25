@@ -30,23 +30,27 @@ import com.todoapp.*;
 public class Main {
 
   public static void main(String[] args) throws Exception {
-        port(Integer.valueOf(System.getenv("10396")));
+        //port(Integer.valueOf(System.getenv("10396")));
         staticFileLocation("/public");
         new TodoResource(new TodoService(mongo()));
     }
   
     private static DB mongo() throws Exception {
-        String host = "candidate.67.mongolayer.com";
-        if (host == null) {
-            MongoClient mongoClient = new MongoClient("localhost");
-            return mongoClient.getDB("todoapp");
-        }
-        int port = Integer.parseInt("10396");
-        String dbname = "app45876994";
-        String username = "heroku";
-        String password = "pn8dcfWw1gaUwhB0Ic62Vr-HCd38d5aCCckox1Hs_4EFlQbre-7225F_2nywCjrjlrCU78bdszTPwjCdEZZeig";
+        MongoClientURI uri = new MongoClientURI(System.getenv("MONGOHQ_URL"));
+        
+        //String host = "candidate.67.mongolayer.com";
+        
+//        if (host == null) {
+//            MongoClient mongoClient = new MongoClient("localhost");
+//            return mongoClient.getDB("todoapp");
+//        }
+        
+        //int port = Integer.parseInt("10396");
+        String dbname = "uri.getDatabase()";
+        String username = "uri.getUsername()";
+        String password = "uri.getPassword()";
         MongoClientOptions mongoClientOptions = MongoClientOptions.builder().build();
-        MongoClient mongoClient = new MongoClient(new ServerAddress(host, port), mongoClientOptions);
+        MongoClient mongoClient = new MongoClient(uri);
         mongoClient.setWriteConcern(WriteConcern.SAFE);
         DB db = mongoClient.getDB(dbname);
         try {
