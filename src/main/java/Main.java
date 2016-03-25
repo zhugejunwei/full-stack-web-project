@@ -29,12 +29,12 @@ import com.todoapp.*;
 public class Main {
 
   public static void main(String[] args) throws MongoException, UnknownHostException {
-        MongoClientURI uri = new MongoClientURI(System.getenv("mongodb://heroku_9b1msnk8:qg4gd778v5o71j63bleh4ir0c0@ds015869.mlab.com:15869/heroku_9b1msnk8"));
+        MongoClientURI uri = new MongoClientURI(System.getenv("MONGOHQ_URL"));
         MongoClient mongoClient = new MongoClient(uri);
         
         String dbname = uri.getDatabase();
         
-        mongoClient.setWriteConcern(WriteConcern.JOURNALED);
+        //mongoClient.setWriteConcern(WriteConcern.JOURNALED);
         DB db = mongoClient.getDB(dbname);
         
         db.authenticate(uri.getUsername(), uri.getPassword());
@@ -42,6 +42,6 @@ public class Main {
         staticFileLocation("/public");
         new TodoResource(new TodoService(db));
         
-        mongoClient.close();
+//        mongoClient.close();
     }
 }
