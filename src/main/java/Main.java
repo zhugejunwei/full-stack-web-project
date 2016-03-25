@@ -4,6 +4,10 @@
 // import org.jscience.physics.amount.Amount;
 //
 import java.util.Arrays;
+import java.sql.*;
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Map;
 
 import java.net.UnknownHostException;
 //import java.net.URI;
@@ -24,7 +28,7 @@ import java.util.List;
 
 public class Main {
 
-  public static void main(String[] args) throws MongoException, UnknownHostException, Exception {
+  public static void main(String[] args) {
 //        MongoClientURI uri = new MongoClientURI(System.getenv("mongodb://heroku_9b1msnk8:qg4gd778v5o71j63bleh4ir0c0@ds015869.mlab.com:15869/heroku_9b1msnk8"));
 //        MongoClient mongoClient = new MongoClient(uri);
     //    MongoURI mongoURI = new MongoURI(System.getenv("mongodb://heroku_9b1msnk8:qg4gd778v5o71j63bleh4ir0c0@ds015869.mlab.com:15869/heroku_9b1msnk8"));
