@@ -1,5 +1,7 @@
 # java-getting-started
 
+[![Join the chat at https://gitter.im/infsci2560sp16/full-stack-web-project-zhugejunwei](https://badges.gitter.im/infsci2560sp16/full-stack-web-project-zhugejunwei.svg)](https://gitter.im/infsci2560sp16/full-stack-web-project-zhugejunwei?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 A barebones Java app, which can easily be deployed to Heroku.  
 
 This application support the [Getting Started with Java on Heroku](https://devcenter.heroku.com/articles/getting-started-with-java) article - check it out.
