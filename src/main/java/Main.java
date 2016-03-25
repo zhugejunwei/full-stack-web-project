@@ -24,9 +24,7 @@ import java.net.UnknownHostException;
 import routes.*;
 import com.todoapp.*;
 
-import com.mongodb.MongoURI;
-import com.mongodb.DB;
-import com.mongodb.MongoException;
+import com.mongodb.*;
 
 import static spark.Spark.*;
 
@@ -50,6 +48,8 @@ public class Main {
     DB db = mongoURI.connectDB();
     db.authenticate(mongoURI.getUsername(), mongoURI.getPassword());
 
+    DBCollection coll = db.getCollection("todos");
+    
         staticFileLocation("/public");
     //    Object r = new Week7Routes();
         Object r = new TodoResource(new TodoService(db));

@@ -10,7 +10,7 @@ import com.mongodb.DBObject;
 
 import org.bson.types.ObjectId;
 
-import java.util.Date;
+//import java.util.Date;
  /**
  *
  * @author zhugejunwei
@@ -20,7 +20,7 @@ public class Todo {
     private String id;
     private String title;
     private boolean done;
-    private Date createdOn = new Date();
+    //private Date createdOn = new Date();
  
     public Todo(BasicDBObject dbObject) {
         this.id = ((ObjectId) dbObject.get("_id")).toString();
@@ -37,7 +37,7 @@ public class Todo {
         return done;
     }
  
-    public Date getCreatedOn() {
-        return createdOn;
-    }
+//    public Date getCreatedOn() {
+//        return createdOn;
+//    }
 }
