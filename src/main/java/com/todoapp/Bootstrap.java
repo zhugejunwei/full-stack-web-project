@@ -16,14 +16,9 @@ import static spark.SparkBase.staticFileLocation;
  * @author zhugejunwei
  */
 public class Bootstrap {
-    private static final String IP_ADDRESS = "candidate.67.mongolayer.com" != null ? "candidate.67.mongolayer.com" : "localhost";
-    private static final int PORT = "10396" != null ? Integer.parseInt("10396") : 8080;
- 
+
     public static void main(String[] args) throws Exception {
-        //setIpAddress(IP_ADDRESS); # Deprecated
-        ipAddress(IP_ADDRESS);
-        //setPort(PORT); # Deprecated
-        port(PORT);
+        port(Integer.valueOf(System.getenv("PORT")));
         staticFileLocation("/public");
         new TodoResource(new TodoService(mongo()));
     }
