@@ -25,13 +25,12 @@ import com.heroku.sdk.jdbc.DatabaseUrl;
 import static spark.Spark.*;
 
 import routes.*;
-
 import com.todoapp.*;
 
 public class Main {
 
   public static void main(String[] args) throws Exception {
-        port(Integer.valueOf(System.getenv("PORT")));
+        port(Integer.valueOf(System.getenv("10396")));
         staticFileLocation("/public");
         new TodoResource(new TodoService(mongo()));
     }
