@@ -19,10 +19,14 @@ import java.net.UnknownHostException;
 //import spark.ModelAndView;
 //import static spark.Spark.get;
 
-import com.mongodb.*;
+//import com.mongodb.*;
 
 import routes.*;
 import com.todoapp.*;
+
+import com.mongodb.MongoURI;
+import com.mongodb.DB;
+import com.mongodb.MongoException;
 
 import static spark.Spark.*;
 
@@ -30,7 +34,7 @@ import java.util.List;
 
 public class Main {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws MongoException, UnknownHostException {
 //        MongoClientURI uri = new MongoClientURI(System.getenv("mongodb://heroku_9b1msnk8:qg4gd778v5o71j63bleh4ir0c0@ds015869.mlab.com:15869/heroku_9b1msnk8"));
 //        MongoClient mongoClient = new MongoClient(uri);
     //    MongoURI mongoURI = new MongoURI(System.getenv("mongodb://heroku_9b1msnk8:qg4gd778v5o71j63bleh4ir0c0@ds015869.mlab.com:15869/heroku_9b1msnk8"));
@@ -41,10 +45,14 @@ public class Main {
         //mongoClient.setWriteConcern(WriteConcern.JOURNALED);
 //        DB db = mongoClient.getDB(dbname);
     //    port(Integer.valueOf(System.getenv("PORT")));
-      
+
+    MongoURI mongoURI = new MongoURI(System.getenv("MONGOHQ_URL"));
+    DB db = mongoURI.connectDB();
+    db.authenticate(mongoURI.getUsername(), mongoURI.getPassword());
+
         staticFileLocation("/public");
-        Object r = new Week7Routes();
-    //    Object r = new TodoResource(new TodoService(db));
+    //    Object r = new Week7Routes();
+        Object r = new TodoResource(new TodoService(db));
  
 //        MongoCredential credential = MongoCredential.createCredential(uri.getUsername(),dbname,uri.getPassword());
     //    MongoCredential credential = MongoCredential.createCredential(mongoURI.getUsername(), mongoURI.getDatabase(), mongoURI.getPassword());
