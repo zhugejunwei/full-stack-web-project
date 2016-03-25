@@ -43,12 +43,10 @@ public class Main {
         
         mongoClient.setWriteConcern(WriteConcern.SAFE);
         DB db = mongoClient.getDB(dbname);
-        try {
-            db.authenticate(uri.getUsername(), uri.getPassword());
-        } catch(RuntimeException ex) {
-            System.err.println("Not able to authenticate with MongoDB" + ex.getMessage());
-        }finally{
+        if (db.authenticate(uri.getUsername(), uri.getPassword())) {
             return db;
+        } else {
+            throw new RuntimeException("Not able to authenticate with MongoDB");
         }
     }
 }
