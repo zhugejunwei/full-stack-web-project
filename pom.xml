@@ -6,10 +6,10 @@
   <artifactId>Todos</artifactId>
 <!--  <url>http://maven.apache.org</url>-->
   
-  <properties>
+<!--  <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-  </properties>
+  </properties>-->
     
   <dependencies>
     <dependency>
@@ -23,11 +23,11 @@
       <artifactId>spark-template-freemarker</artifactId>
       <version>2.0.0</version>
     </dependency>
-    <dependency>
+<!--    <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
       <version>9.4-1201-jdbc4</version>
-    </dependency>
+    </dependency>-->
     <dependency>
       <groupId>com.heroku.sdk</groupId>
       <artifactId>heroku-jdbc</artifactId>

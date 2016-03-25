@@ -34,7 +34,7 @@ public class Main {
         
         //mongoClient.setWriteConcern(WriteConcern.JOURNALED);
 //        DB db = mongoClient.getDB(dbname);
-
+        port(Integer.valueOf(System.getenv("PORT")));
         staticFileLocation("/public");
     //    new TodoResource(new TodoService(db));
  
