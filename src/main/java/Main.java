@@ -24,13 +24,12 @@ import com.heroku.sdk.jdbc.DatabaseUrl;
 
 import static spark.Spark.*;
 
-import routes.*;
 import com.todoapp.*;
 
 public class Main {
 
-  public static void main(String[] args) throws Exception {
-        MongoClientURI uri = new MongoClientURI(System.getenv("MONGOLAB_URI"));
+  public static void main(String[] args) throws MongoException, UnknownHostException {
+        MongoClientURI uri = new MongoClientURI(System.getenv("mongodb://heroku_9b1msnk8:qg4gd778v5o71j63bleh4ir0c0@ds015869.mlab.com:15869/heroku_9b1msnk8"));
         MongoClient mongoClient = new MongoClient(uri);
         
         String dbname = uri.getDatabase();
@@ -42,5 +41,7 @@ public class Main {
         
         staticFileLocation("/public");
         new TodoResource(new TodoService(db));
+        
+        mongoClient.close();
     }
 }
