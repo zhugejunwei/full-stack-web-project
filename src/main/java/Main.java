@@ -36,25 +36,15 @@ public class Main {
     }
   
     private static DB mongo() throws Exception {
-        MongoClientURI uri = new MongoClientURI(System.getenv("MONGOHQ_URL"));
-        
-        //String host = "candidate.67.mongolayer.com";
-        
-//        if (host == null) {
-//            MongoClient mongoClient = new MongoClient("localhost");
-//            return mongoClient.getDB("todoapp");
-//        }
-        
-        //int port = Integer.parseInt("10396");
-        String dbname = "uri.getDatabase()";
-        String username = "uri.getUsername()";
-        String password = "uri.getPassword()";
-        MongoClientOptions mongoClientOptions = MongoClientOptions.builder().build();
+        MongoClientURI uri = new MongoClientURI(System.getenv("MONGOLAB_URI"));
         MongoClient mongoClient = new MongoClient(uri);
+        
+        String dbname = uri.getDatabase();
+        
         mongoClient.setWriteConcern(WriteConcern.SAFE);
         DB db = mongoClient.getDB(dbname);
         try {
-            db.authenticate(username, password.toCharArray());
+            db.authenticate(uri.getUsername(), uri.getPassword());
         } catch(RuntimeException ex) {
             System.err.println("Not able to authenticate with MongoDB" + ex.getMessage());
         }finally{
