@@ -30,24 +30,17 @@ import com.todoapp.*;
 public class Main {
 
   public static void main(String[] args) throws Exception {
-        //port(Integer.valueOf(System.getenv("10396")));
-        staticFileLocation("/public");
-        new TodoResource(new TodoService(mongo()));
-    }
-  
-    private static DB mongo() throws Exception {
-        MongoClientURI uri = new MongoClientURI("mongodb://heroku_9b1msnk8:qg4gd778v5o71j63bleh4ir0c0@ds015869.mlab.com:15869/heroku_9b1msnk8");
+        MongoClientURI uri = new MongoClientURI(System.getenv("MONGOLAB_URI"));
         MongoClient mongoClient = new MongoClient(uri);
         
         String dbname = uri.getDatabase();
         
-        mongoClient.setWriteConcern(WriteConcern.SAFE);
+        mongoClient.setWriteConcern(WriteConcern.JOURNALED);
         DB db = mongoClient.getDB(dbname);
-//        if (db.authenticate(uri.getUsername(), uri.getPassword())) {
-//            return db;
-//        } else {
-//            throw new RuntimeException("Not able to authenticate with MongoDB");
-//        }
-        return db;
+        
+        db.authenticate(uri.getUsername(), uri.getPassword());
+        
+        staticFileLocation("/public");
+        new TodoResource(new TodoService(db));
     }
 }
