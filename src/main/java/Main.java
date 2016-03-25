@@ -19,12 +19,13 @@ import java.net.UnknownHostException;
 //import spark.ModelAndView;
 //import static spark.Spark.get;
 
-//import com.mongodb.*;
+import com.mongodb.*;
+
 import routes.*;
+import com.todoapp.*;
 
 import static spark.Spark.*;
 
-//import com.todoapp.*;
 import java.util.List;
 
 public class Main {
@@ -39,10 +40,10 @@ public class Main {
         
         //mongoClient.setWriteConcern(WriteConcern.JOURNALED);
 //        DB db = mongoClient.getDB(dbname);
-        port(Integer.valueOf(System.getenv("PORT")));
+    //    port(Integer.valueOf(System.getenv("PORT")));
         staticFileLocation("/public");
         Object r = new Week7Routes();
-    //    new TodoResource(new TodoService(db));
+    //    Object r = new TodoResource(new TodoService(db));
  
 //        MongoCredential credential = MongoCredential.createCredential(uri.getUsername(),dbname,uri.getPassword());
     //    MongoCredential credential = MongoCredential.createCredential(mongoURI.getUsername(), mongoURI.getDatabase(), mongoURI.getPassword());
