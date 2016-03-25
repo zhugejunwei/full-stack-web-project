@@ -36,7 +36,7 @@ public class Main {
     }
   
     private static DB mongo() throws Exception {
-        MongoClientURI uri = new MongoClientURI(System.getenv("MONGOLAB_URI"));
+        MongoClientURI uri = new MongoClientURI("mongodb://heroku_9b1msnk8:qg4gd778v5o71j63bleh4ir0c0@ds015869.mlab.com:15869/heroku_9b1msnk8");
         MongoClient mongoClient = new MongoClient(uri);
         
         String dbname = uri.getDatabase();
