@@ -40,8 +40,7 @@ public class Main {
 //        
 //        db.authenticate(uri.getUsername(), uri.getPassword());
         
-        MongoClientURI uri = new MongoClientURI(System.getenv("MONGOHQ_URL"));
-         MongoURI mongoURI = new MongoURI(System.getenv("MONGOHQ_URL"));
+       MongoURI mongoURI = new MongoURI(System.getenv("MONGOHQ_URL"));
         //get connected
         DB db = mongoURI.connectDB();
         // authenticate
