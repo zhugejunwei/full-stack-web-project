@@ -47,6 +47,6 @@ public class Main {
  
         MongoCredential credential = MongoCredential.createCredential(uri.getUsername(),dbname,uri.getPassword());
 //        MongoCredential credential = MongoCredential.createCredential(mongoURI.getUsername(), mongoURI.getDatabase(), mongoURI.getPassword());
-        //MongoClientOptions mongoClientOptions = MongoClientOptions.builder().build();
+        MongoClientOptions mongoClientOptions = MongoClientOptions.builder().build();
     }
 }
