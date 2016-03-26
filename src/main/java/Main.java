@@ -38,8 +38,8 @@ public class Main {
     // (version 2.7.2) db.authenticate(mongoURI.getUsername(), mongoURI.getPassword());
     MongoCredential credential = MongoCredential.createCredential(mongoURI.getUsername(), mongoURI.getDatabase(), mongoURI.getPassword());
     MongoClient mongoClient = new MongoClient(new ServerAddress(), Arrays.asList(credential));
-    
-        //port(Integer.valueOf(System.getenv("PORT")));  
+            
+        port(15869);  
         staticFileLocation("/public");
 //        new TodoResource(new TodoService(db));
         Object r = new TodoResource(new TodoService(db));
