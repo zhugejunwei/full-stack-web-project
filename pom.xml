@@ -45,12 +45,12 @@
       <!--<type>jar</type>-->
       <type>jar</type>
     </dependency>
-    <dependency>
+    <exclusions>
+    <exclusion>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-log4j12</artifactId>
-        <version>1.7.19</version>
-        <scope>runtime</scope>
-    </dependency>
+    </exclusion>
+</exclusions> 
   </dependencies>
   
   <build>
