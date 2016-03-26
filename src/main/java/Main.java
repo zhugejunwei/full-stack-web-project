@@ -39,7 +39,6 @@ public class Main {
     MongoCredential credential = MongoCredential.createCredential(mongoURI.getUsername(), mongoURI.getDatabase(), mongoURI.getPassword());
     MongoClient mongoClient = new MongoClient(new ServerAddress(), Arrays.asList(credential));
             
-        port(15869);  
         staticFileLocation("/public");
 //        new TodoResource(new TodoService(db));
         Object r = new TodoResource(new TodoService(db));
