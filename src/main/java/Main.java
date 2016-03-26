@@ -39,13 +39,6 @@ public class Main {
     MongoCredential credential = MongoCredential.createCredential(mongoURI.getUsername(), mongoURI.getDatabase(), mongoURI.getPassword());
     MongoClient mongoClient = new MongoClient(new ServerAddress(), Arrays.asList(credential));
     
-    DBCollection coll = db.getCollection("testCollection");
-    BasicDBObject doc = new BasicDBObject("name", "MongoDB")
-    .append("type", "database")
-    .append("count", 1)
-    .append("info", new BasicDBObject("x", 204).append("y", 103));
-    coll.insert(doc);
-    
         //port(Integer.valueOf(System.getenv("PORT")));  
         staticFileLocation("/public");
 //        new TodoResource(new TodoService(db));
