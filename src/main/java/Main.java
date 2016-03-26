@@ -25,17 +25,17 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-//	MongoClientURI uri = new MongoClientURI("mongodb://heroku_9b1msnk8:qg4gd778v5o71j63bleh4ir0c0@ds015869.mlab.com:15869/heroku_9b1msnk8");
-//	MongoClientOptions mongoClientOptions = MongoClientOptions.builder().build();
-//	MongoClient mongoClient = new MongoClient(uri);
+	MongoClientURI uri = new MongoClientURI("mongodb://heroku_9b1msnk8:qg4gd778v5o71j63bleh4ir0c0@ds015869.mlab.com:15869/heroku_9b1msnk8");
+	MongoClientOptions mongoClientOptions = MongoClientOptions.builder().build();
+	MongoClient mongoClient = new MongoClient(uri);
 //	
 //        String dbname = uri.getDatabase();
 //        
 //        mongoClient.setWriteConcern(WriteConcern.SAFE);
-//        DB db = mongoClient.getDB(dbname);
+        DB db = mongoClient.getDB(uri.getDatabase());
         port(Integer.valueOf(System.getenv("PORT")));  
         staticFileLocation("/public");
 //        new TodoResource(new TodoService(db));
-        Object r = new Week7Routes();
+        Object r = new TodoResource(new TodoService(db));
     }
 }
