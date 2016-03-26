@@ -12,10 +12,10 @@ var app = angular.module('todoapp', [
 ]);
  
 app.config(function ($routeProvider) {
-    $routeProvider.when('/create', {
+    $routeProvider.when('/todo', {
         templateUrl: 'views/list.html',
         controller: 'ListCtrl'
-    }).when('/todo', {
+    }).when('/create', {
         templateUrl: 'views/create.html',
         controller: 'CreateCtrl'
     }).otherwise({

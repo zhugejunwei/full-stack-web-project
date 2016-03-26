@@ -25,7 +25,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-	MongoClientURI uri = new MongoClientURI("mongodb://heroku_9b1msnk8:qg4gd778v5o71j63bleh4ir0c0@ds015869.mlab.com:15869/heroku_9b1msnk8");
+	MongoClientURI uri = new MongoClientURI("mongodb://heroku:pn8dcfWw1gaUwhB0Ic62Vr-HCd38d5aCCckox1Hs_4EFlQbre-7225F_2nywCjrjlrCU78bdszTPwjCdEZZeig@candidate.67.mongolayer.com:10396,candidate.68.mongolayer.com:10385/app45876994");
 	MongoClientOptions mongoClientOptions = MongoClientOptions.builder().build();
 	MongoClient mongoClient = new MongoClient(uri);
 //	
@@ -33,7 +33,7 @@ public class Main {
 //        
 //        mongoClient.setWriteConcern(WriteConcern.SAFE);
         DB db = mongoClient.getDB(uri.getDatabase());
-        port(Integer.valueOf(System.getenv("PORT")));  
+        //port(Integer.valueOf(System.getenv("PORT")));  
         staticFileLocation("/public");
 //        new TodoResource(new TodoService(db));
         Object r = new TodoResource(new TodoService(db));
