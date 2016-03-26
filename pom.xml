@@ -20,8 +20,7 @@
     <exclusions>
     <exclusion>
     <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-log4j12</artifactId>
-    
+    <artifactId>slf4j-api</artifactId>
     </exclusion>
     </exclusions> 
         
@@ -47,14 +46,26 @@
         <artifactId>mongo-java-driver</artifactId>
         <version>3.2.2</version>
       <type>jar</type>
+      
+      <exclusions>
+      <exclusion> 
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+      </exclusion>
+      <exclusion> 
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+      </exclusion>
+    </exclusions> 
+    
     </dependency>
     
-<!--    <dependency>
+    <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-log4j12</artifactId>
         <version>1.7.5</version>
         <scope>runtime</scope>
-    </dependency>-->
+    </dependency>
   </dependencies>
   
   <build>
