@@ -1,3 +1,5 @@
+/* global angular */
+
 /**
  * Created by JunweiZhuge on 03/24/16.
  */
@@ -10,32 +12,32 @@ var app = angular.module('todoapp', [
 ]);
  
 app.config(function ($routeProvider) {
-    $routeProvider.when('/todo', {
+    $routeProvider.when('/create', {
         templateUrl: 'views/list.html',
         controller: 'ListCtrl'
-    }).when('/create', {
+    }).when('/todo', {
         templateUrl: 'views/create.html',
         controller: 'CreateCtrl'
     }).otherwise({
         redirectTo: '/todo'
-    })
+    });
 });
  
 app.controller('ListCtrl', function ($scope, $http) {
     $http.get('/api/v1/todos').success(function (data) {
         $scope.todos = data;
     }).error(function (data, status) {
-        console.log('Error ' + data)
-    })
+        console.log('Error ' + data);
+    });
  
     $scope.todoStatusChanged = function (todo) {
         console.log(todo);
         $http.put('/api/v1/todos/' + todo.id, todo).success(function (data) {
             console.log('status changed');
         }).error(function (data, status) {
-            console.log('Error ' + data)
-        })
-    }
+            console.log('Error ' + data);
+        });
+    };
 });
  
 app.controller('CreateCtrl', function ($scope, $http, $location) {
@@ -48,7 +50,7 @@ app.controller('CreateCtrl', function ($scope, $http, $location) {
         $http.post('/api/v1/todos', $scope.todo).success(function (data) {
             $location.path('/todo');
         }).error(function (data, status) {
-            console.log('Error ' + data)
-        })
-    }
+            console.log('Error ' + data);
+        });
+    };
 });
