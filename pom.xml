@@ -17,20 +17,13 @@
       <artifactId>spark-core</artifactId>
       <version>2.2</version>
       <type>jar</type>
-<!--    <exclusions>
-    <exclusion>
-    <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-api</artifactId>
-    </exclusion>
-    </exclusions> -->
     </dependency>
     
-<!--    <dependency>
+    <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-simple</artifactId>
         <version>1.7.5</version>
-        <scope>runtime</scope>
-    </dependency>-->
+    </dependency>
     
     <dependency>
       <groupId>com.sparkjava</groupId>
@@ -46,13 +39,13 @@
     <dependency>
         <groupId>com.google.code.gson</groupId>
         <artifactId>gson</artifactId>
-        <version>2.5</version>
+        <version>2.2.4</version>
     </dependency>
     <dependency>
         <groupId>org.mongodb</groupId>
         <artifactId>mongo-java-driver</artifactId>
-        <version>3.2.2</version>
-      <type>jar</type>
+        <version>2.11.3</version>
+<!--      <type>jar</type>-->
     </dependency>
   </dependencies>
   
