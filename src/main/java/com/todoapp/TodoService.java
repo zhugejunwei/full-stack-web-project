@@ -10,8 +10,8 @@ import com.mongodb.*;
 import org.bson.types.ObjectId;
  
 import java.util.ArrayList;
-//import java.util.Collections;
-//import java.util.Date;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 /**
  *
@@ -38,7 +38,7 @@ public class TodoService {
  
     public void createNewTodo(String body) {
         Todo todo = new Gson().fromJson(body, Todo.class);
-        collection.insert(new BasicDBObject("title", todo.getTitle()).append("done", todo.isDone()));//.append("createdOn", new Date())
+        collection.insert(new BasicDBObject("title", todo.getTitle()).append("done", todo.isDone()).append("createdOn", new Date()));
     }
  
     public Todo find(String id) {
