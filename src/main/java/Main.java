@@ -31,16 +31,16 @@ public class Main {
 //
 //        DB db = mongoClient.getDB(uri.getDatabase());
         
-        MongoURI mongoURI = new MongoURI("mongodb://heroku_9b1msnk8:qg4gd778v5o71j63bleh4ir0c0@ds015869.mlab.com:15869/heroku_9b1msnk8");
+///        MongoURI mongoURI = new MongoURI("mongodb://heroku_9b1msnk8:qg4gd778v5o71j63bleh4ir0c0@ds015869.mlab.com:15869/heroku_9b1msnk8");
     //get connected
-    DB db = mongoURI.connectDB();
+///    DB db = mongoURI.connectDB();
     // authenticate
     // (version 2.7.2) db.authenticate(mongoURI.getUsername(), mongoURI.getPassword());
-    MongoCredential credential = MongoCredential.createCredential(mongoURI.getUsername(), mongoURI.getDatabase(), mongoURI.getPassword());
-    MongoClient mongoClient = new MongoClient(new ServerAddress(), Arrays.asList(credential));
-            
+///    MongoCredential credential = MongoCredential.createCredential(mongoURI.getUsername(), mongoURI.getDatabase(), mongoURI.getPassword());
+///    MongoClient mongoClient = new MongoClient(new ServerAddress(), Arrays.asList(credential));
+        port(Integer.valueOf(System.getenv("PORT")));
         staticFileLocation("/public");
-//        new TodoResource(new TodoService(db));
-        Object r = new TodoResource(new TodoService(db));
+///        Object r = new TodoResource(new TodoService(db));
+        Object r = new Week7Routes();
     }
 }
