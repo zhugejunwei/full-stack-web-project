@@ -7,6 +7,19 @@
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
+    <p>Hello from Java Grunt!</p>
+    <div id="current-time"></div>
+    <script>
+        $(function () {
+            $.ajax({
+                url: "/api/time/now.xml", 
+                success: function (result) {
+                    var data = JSON.parse(result);
+                    $("#current-time").html(data.currentTime);
+                }});
+        });
+    </script>
+		
 <div class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
