@@ -30,6 +30,12 @@ public class TodoResource {
     }
  
     private void setupEndpoints() {
+        get("/api/time/now.xml", (req, res) -> {
+            Map<String, Object> data = new HashMap<>();
+            data.put("currentTime", new Date());
+            return data;
+        }, gson::toJson);
+        
         post(API_CONTEXT + "/todos", "application/json", (request, response) -> {
             todoService.createNewTodo(request.body());
             response.status(201);
