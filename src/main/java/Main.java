@@ -41,7 +41,8 @@ public class Main {
         port(Integer.valueOf(System.getenv("PORT")));
         staticFileLocation("/public");
         
+        
 ///        Object r = new TodoResource(new TodoService(db));
-//        new Week7Routes();
+        new Week7Routes();
     }
 }
