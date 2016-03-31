@@ -128,10 +128,10 @@ input:-webkit-autofill {
     display:inline !important;
 }
 
-.formstatus {
+/*.formstatus {
     margin-bottom:12px;
     font-size:18px;
-}
+}*/
 
 .alert {
     background:#e4f3d4;
@@ -144,7 +144,7 @@ input:-webkit-autofill {
 
 
 /* Groups, checkboxes, radio buttons */
-ul.interestgroup_field,
+/*ul.interestgroup_field,
 ul.interestgroup_field li,
 ul.unsub-options,
 ul.unsub-options li,
@@ -153,20 +153,20 @@ ul.unsub-options li,
     padding:0;
     margin:0;
     list-style:none;
-}
-label.checkbox, label.radio {
+}*/
+/*label.checkbox, label.radio {
     font-weight:normal;
     position:relative;
     line-height:24px;
-}
-.checkbox input, .radio input {
+}*/
+/*.checkbox input, .radio input {
     width:auto !important;
     display:inline-block;
     margin-right:5px;
     padding:0;
     border:none;
     background-color:transparent;
-}
+}*/
 
 /* Address blocks */
 .addressfield span {display:block; margin:3px 0 15px 0;}
@@ -189,16 +189,16 @@ label.checkbox, label.radio {
     opacity:.5;
     padding:0 5px;
 }
-.dijitComboBox.dijitDateTextBox .dijitArrowButtonContainer input {visibility:hidden;}
+/*.dijitComboBox.dijitDateTextBox .dijitArrowButtonContainer input {visibility:hidden;}
 .dijitComboBox.dijitDateTextBox .dijitArrowButtonContainer:hover {opacity:1;}
-.dijitValidationContainer {display:none;}
+.dijitValidationContainer {display:none;}*/
 
 /* Input placeholder color */
-.dijitPlaceHolder {position:absolute; top:10px; left:10px; color:#ababab !important; font-weight:normal;}
+/*.dijitPlaceHolder {position:absolute; top:10px; left:10px; color:#ababab !important; font-weight:normal;}
 ::-webkit-input-placeholder {color:#ababab;}
 :-moz-placeholder {color:#ababab; opacity:1;}
 ::-moz-placeholder {color:#ababab; opacity:1;}
-:-ms-input-placeholder {color:#ababab;}
+:-ms-input-placeholder {color:#ababab;}*/
 
 html[dir="rtl"] .dijitComboBox.dijitDateTextBox .dijitArrowButtonContainer {left:6px; right:auto;}
 html[dir="rtl"] .dijitPlaceHolder {left:auto; right:10px;}
@@ -215,7 +215,7 @@ html[dir="rtl"] .dijitPlaceHolder {left:auto; right:10px;}
     border-radius:3px;
     color:#d0d0d0
 }
-.subfields input {
+/*.subfields input {
     display:inline-block;
     margin:0;
     padding:0;
@@ -225,7 +225,7 @@ html[dir="rtl"] .dijitPlaceHolder {left:auto; right:10px;}
 }
 .subfields label {display:none;}
 .phonedetail2 input {width:3.4em;}
-.birthdayfield input {width:1.7em;}
+.birthdayfield input {width:1.7em;}*/
 
 /* Forward to friend */
 .captcha {
@@ -234,7 +234,7 @@ html[dir="rtl"] .dijitPlaceHolder {left:auto; right:10px;}
     margin-right:20px;
     min-height:150px;
 }
-.captcha input {display:inline;}
+/*.captcha input {display:inline;}*/
 
 /* Archive list */
 #archive-list {
@@ -251,11 +251,11 @@ html[dir="rtl"] .dijitPlaceHolder {left:auto; right:10px;}
     border-bottom:1px solid #eee;
 }
 
-.borderbox, .field-help, input, textarea, select {
+/*.borderbox, .field-help, input, textarea, select {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-}
+}*/
 
 .hidden-from-view { left: -5000px; position: absolute; }
 
@@ -263,16 +263,16 @@ html[dir="rtl"] .dijitPlaceHolder {left:auto; right:10px;}
 
 /* Image replacement for checkbox and radio buttons. */
 /* Placing in @media block forces browsers that don't support :checked to fall back to native inputs. */
-@media only screen {
+/*@media only screen {
     .mergeRow-radio .field-group, .mergeRow-interests-checkboxes .field-group {margin:0 -6px 11px -6px;}
 
     .checkbox, .radio {
         margin:9px 0 0 0;
         padding:0;
-    }
+    }*/
 
     /* Position and hide the real checkboxes and radio buttons */
-    .checkbox input, .radio input {
+    /*.checkbox input, .radio input {
         position:absolute;
         width:24px;
         height:24px;
@@ -287,9 +287,9 @@ html[dir="rtl"] .dijitPlaceHolder {left:auto; right:10px;}
         display:block;
         border-radius:3px;
         padding:6px 6px 6px 38px;
-    }
+    }*/
 
-    .checkbox:hover span,
+    /*.checkbox:hover span,
     .checkbox input:focus + span,
     .radio:hover span,
     .radio input:focus + span {
@@ -297,7 +297,7 @@ html[dir="rtl"] .dijitPlaceHolder {left:auto; right:10px;}
     }
 
     /* Insert a pseudo element inside each label with a background sprite.  */
-    .checkbox input + span:before, .radio input + span:before {
+    /*.checkbox input + span:before, .radio input + span:before {
         display:block;
         position:absolute;
         top:6px;
@@ -307,29 +307,29 @@ html[dir="rtl"] .dijitPlaceHolder {left:auto; right:10px;}
         background:url(/images/icons/signup-sprite.png) no-repeat;
         content:" ";
         vertical-align:top;
-    }
+    }*/
 
     /* Position the background sprite based on state of checkbox/radio. */
-    .radio input:focus + span:before { background-position:0 -30px; }
+    /*.radio input:focus + span:before { background-position:0 -30px; }
     .radio input:checked + span:before { background-position:0 -60px; }
-    .radio input:checked:focus + span:before { background-position:-0 -90px; }
-    .checkbox input + span:before { background-position:0 -120px; }
+    .radio input:checked:focus + span:before { background-position:-0 -90px; }*/
+    /*.checkbox input + span:before { background-position:0 -120px; }
     .checkbox input:focus + span:before { background-position:0 -150px; }
     .checkbox input:checked + span:before { background-position:0 -180px; }
     .checkbox input:checked:focus + span:before { background-position:0 -210px; }
 
     /* Right-to-left checkbox/radio modifications */
-    html[dir="rtl"] .checkbox input + span:before, html[dir="rtl"] .radio input + span:before {left:auto; right:0;}
+    /*html[dir="rtl"] .checkbox input + span:before, html[dir="rtl"] .radio input + span:before {left:auto; right:0;}
     html[dir="rtl"] .checkbox input + span, html[dir="rtl"] .radio input + span {padding:6px 38px 6px 6px;}
-}
+}*/
 
 /* Use high-res sprite for retina displays */
-@media (-webkit-min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+/*@media (-webkit-min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
     .checkbox input + span:before, .radio input + span:before, .calendar-icon {
         background-image:url(/images/icons/signup-sprite-2x.png);
         background-size: 24px;
     }
-}
+}*/
 
 /* IE6 and 7 overrides */
 .ie-lte7 .field-group input, .ie-lte7 .subfields {width:535px;}

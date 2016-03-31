@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!--[if lte IE 7]> <html class="ie-lte7" dir="ltr"> <![endif]-->
+<!--[if lte IE 9]> <html class="ie-lte9" dir="ltr"> <![endif]-->
+<!--[if !IE]><!--> <html dir="ltr">             <!--<![endif]-->
+<head>
+        <title>Kongming's Blog</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="description" content="OneV's Den Email Forms">
+        <meta name="keywords" content="OneV's Den">
+		<!-- <link href="css/forms.css" rel="stylesheet" /> -->
+		<link href="css/subscribe.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<script src="//twemoji.maxcdn.com/twemoji.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8/dojo/dojo.js"></script>
+		<script src="js/subscribe.js"></script>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	    <link rel="shortcut icon" href="img/kongming.png" />
+	    <link rel="apple-touch-icon" href="img/kongming.png" />
+      <link rel="stylesheet" href="css/todos.css"/>
+</head>
+<body>
+
+		<div class="wrapper rounded6" id="templateContainer">
+		<h1 class="masthead"><a style="text-align: left;">&nbsp;<img src="img/subscribe.png" alt="" style="margin: 0; padding: 0;display: block; margin-top: 0; margin-bottom: 0;"></a></h1>
+
+		<div id="templateBody" class="bodyContent rounded6">
+
+		<div id="subscribeFormWelcome">Subscribe Kongming&#39;s Blog. You can receive a mail when I post a new article in the site.
+		</div>
+		<div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+
+		<!-- <form action="subscribe.php" method="POST">
+		<input type="hidden" name="u" value="fa540a239b75bfd1358e5c63a">
+		<input type="hidden" name="id" value="cfde66e507"> -->
+
+		<div id="todoapp" class="mergeTable">
+		  <div class="mergeRow dojoDndItem mergeRow-email" id="mergeRow-0">
+		  <label  for="MERGE0">Email Address <span class="req asterisk">*</span></label>
+        <header>
+        <div class="field-group">
+		    <input type="email" class="emailaddress" name="MERGE0" id="new-todo" size="25" value="" placeholder="Your email"><!-- autocapitalize="off" autocorrect="off"-->
+		    </div>
+        </header>
+
+        <section id="main">
+            <h2>Email list</h2>
+          <input id="toggle-all" type="checkbox">
+          <label for="toggle-all">Delete all</label>
+          <hr>
+          <ul id="todo-list"></ul>
+        </section>
+
+        <footer>
+          <a id="clear-completed">Clear completed</a>
+          <div id="todo-count"></div>
+        </footer>
+
+		  </div>
+		</div>
+
+    <div id="instructions">
+      Double-click an email address to edit.
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20150503/json2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.16/backbone.localStorage-min.js"></script>
+    <script src="outjs/todos.js"></script>
+
+
+
+		<!-- real people should not fill this in and expect good things -->
+		<!-- <div class="hidden-from-view" aria-hidden="true"><input type="text" name="b_fa540a239b75bfd1358e5c63a_cfde66e507" tabindex="-1" value=""></div>
+
+		<div class="submit_container clear">
+		<input type="submit" class="button" name="submit" value="Subscribe to list">
+		</div> -->
+		</form>
+
+				    </div>
+				</div>
+
+        <!-- Templates -->
+
+        <script type="text/template" id="item-template">
+          <div class="view">
+            <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
+            <label><%- title %></label>
+            <a class="destroy"></a>
+          </div>
+          <input class="edit" type="text" value="<%- title %>" />
+        </script>
+
+        <script type="text/template" id="stats-template">
+          <% if (done) { %>
+            <a id="clear-completed">Clear <%= done %> completed <%= done == 1 ? 'item' : 'items' %></a>
+          <% } %>
+          <div class="todo-count"><b><%= remaining %></b> <%= remaining == 1 ? 'item' : 'items' %> left</div>
+        </script>
+
+<p>Current time: </p>
+  <div id="current-time"></div>
+  <script>
+      $(function () {
+          $.ajax({
+              url: "/api/time/now.xml",
+              success: function (result) {
+                  var data = JSON.parse(result);
+                  $("#current-time").html(data.currentTime);
+              }});
+      });
+  </script>
+
+	</body>
+</html>
+<!--<script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script>
+<script type="text/javascript">
+try {
+var _gaq = _gaq || [];
+	_gaq.push(["_setAccount", "UA-329148-88"]);
+	_gaq.push(["_setDomainName", ".list-manage.com"]);
+	_gaq.push(["_trackPageview"]);
+	_gaq.push(["_setAllowLinker", true]);
+} catch(err) {console.log(err);}</script>-->
