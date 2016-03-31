@@ -43,6 +43,6 @@ public class Main {
         
         
 ///        Object r = new TodoResource(new TodoService(db));
-        new Week7Routes();
+       Object r = new Week7Routes();
     }
 }
