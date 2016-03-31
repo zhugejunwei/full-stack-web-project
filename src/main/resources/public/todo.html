@@ -8,18 +8,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 <body>
-    <p>Hello from Java Grunt!</p>
-    <div id="current-time"></div>
-    <script>
-        $(function () {
-            $.ajax({
-                url: "/api/time/now.xml", 
-                success: function (result) {
-                    var data = JSON.parse(result);
-                    $("#current-time").html(data.currentTime);
-                }});
-        });
-    </script>
 		
 <div class="navbar navbar-inverse">
     <div class="container-fluid">
