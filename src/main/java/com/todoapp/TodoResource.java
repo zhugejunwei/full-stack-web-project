@@ -9,7 +9,9 @@ import com.google.gson.Gson;
 import spark.Request;
 import spark.Response;
 import spark.Route;
- 
+
+import java.util.Map;
+import java.util.Date;
 import java.util.HashMap;
  
 import static spark.Spark.get;
@@ -34,7 +36,7 @@ public class TodoResource {
             Map<String, Object> data = new HashMap<>();
             data.put("currentTime", new Date());
             return data;
-        }, gson::toJson);
+        }, new JsonTransformer());
         
         post(API_CONTEXT + "/todos", "application/json", (request, response) -> {
             todoService.createNewTodo(request.body());
