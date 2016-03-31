@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.w3schools.com">
+  <xs:element xmlns:w3s="http://www.w3schools.com" name="articles" type="w3s:ARTICLESType"/>
+  <xs:complexType name="ARTICLEType">
+    <xs:sequence>
+      <xs:element type="xs:byte" name="id"/>
+      <xs:element type="xs:string" name="title"/>
+      <xs:element type="xs:string" name="author"/>
+      <xs:element type="xs:date" name="date"/>
+      <xs:element type="xs:string" name="body"/>
+      <xs:element type="xs:string" name="image"/>
+      <xs:element type="xs:anyURI" name="url"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ARTICLESType">
+    <xs:sequence>
+      <xs:element xmlns:w3s="http://www.w3schools.com" type="w3s:ARTICLEType" name="article" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

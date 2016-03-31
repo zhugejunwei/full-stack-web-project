@@ -1,12 +1,40 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>${title}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        </head>
-    <body>
-        <h1>This is the page about ${name}</h1>
-        <h3>${description}</h3>
-        <h3>${profession}</h3>
-    </body>
-    </html>
+<html data-ng-app="todoapp">
+<head>
+	<meta charset="utf-8">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/main.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+<body>
+		
+<div class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">TodoApp</a>
+        </div>
+    </div>
+</div>
+ 
+<div class="container" data-ng-view="">
+ 
+ 
+</div>
+ 
+<script src="/outjs/jquery.js"></script>
+<script src="/outjs/angular.js"></script>
+<script src="/outjs/angular-route.js"></script>
+<script src="/outjs/angular-cookies.js"></script>
+<script src="/outjs/angular-sanitize.js"></script>
+<script src="/outjs/angular-resource.js"></script>
+ 
+<script src="/scripts/app.js"></script>
+</body>
+</html>
