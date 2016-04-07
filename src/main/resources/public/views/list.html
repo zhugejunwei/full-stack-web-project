@@ -34,5 +34,17 @@
         </td>
     </tr>
 </table>
+    <p>Hello from MongoDB!</p>
+        <div id="current-time"></div>
+        <script>
+            $(function () {
+                $.ajax({
+                    url: "/api/time/now.xml", 
+                    success: function (result) {
+                        var data = JSON.parse(result);
+                        $("#current-time").html(data.currentTime);
+                    }});
+            });
+        </script>
 </body>
 </html>

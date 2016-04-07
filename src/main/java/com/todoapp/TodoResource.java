@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.Date;
 import java.util.HashMap;
  
+import com.google.gson.Gson;
 import static spark.Spark.get;
 import static spark.Spark.post;
 import static spark.Spark.put;
@@ -32,11 +33,13 @@ public class TodoResource {
     }
  
     private void setupEndpoints() {
-//        get("/api/time/now.xml", (req, res) -> {
-//            Map<String, Object> data = new HashMap<>();
-//            data.put("currentTime", new Date());
-//            return data;
-//        }, new JsonTransformer());
+        Gson gson = new Gson();
+        
+        get("/api/time/now.xml", (req, res) -> {
+            Map<String, Object> data = new HashMap<>();
+            data.put("currentTime", new Date());
+            return data;
+        }, gson::toJson);
         
         post(API_CONTEXT + "/todos", "application/json", (request, response) -> {
             todoService.createNewTodo(request.body());
